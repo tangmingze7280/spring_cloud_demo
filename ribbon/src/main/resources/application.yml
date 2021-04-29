@@ -1,0 +1,11 @@
+server:  # 服务端口
+  port: 9093
+spring:
+  application:  # 应用名字，eureka 会根据它作为服务id
+    name: MY-RIBBON-1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.0.217:9090/eureka
+    fetch-registry: true
+    register-with-eureka: true
