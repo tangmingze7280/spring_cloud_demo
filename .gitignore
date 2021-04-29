@@ -1,0 +1,6 @@
+# Project exclude paths
+/center/target/
+/client/target/
+/gateway_plus/target/
+/sdk/target/
+/server/target/

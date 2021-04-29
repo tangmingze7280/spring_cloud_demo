@@ -1,0 +1,37 @@
+server:
+  port: 9999
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: MY-GATEWAY-SERVER
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+      routes:
+      - id: MY-SERVER_1
+        uri: www.baidu.com
+        predicates:
+          - Path=/filt/**
+          - After=2022-4-25T14:33:47.789+08:0
+        filters:
+          - StripPrefix=1
+          - RequestTime=true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.0.217:9090/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+
+
+
